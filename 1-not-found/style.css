@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Space+Mono:wght@400&display=swap&family=Montserrat:wght@500&display=swap');
+* {
+    background: #FFF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    max-width: 700px;
+}
+
+header>p {
+    font: 800 1.8rem Inconsolata;
+    margin: 25px 0 25px 25px;
+}
+
+#img img {
+    display: block;
+    margin: 60px auto;
+    width: 80%;
+}
+
+h1, .content p {
+    margin-left: 25px;
+    margin-bottom: 30px;
+    font-family: Mono Space;
+}
+
+h1 {
+    font-size: 2.9rem;
+    line-height: 5rem;
+}
+
+.content p {
+    width: 90vw;
+    font-size: 1.2rem;
+    font-style: regular;
+    line-height: 2rem;
+}
+
+.content a {
+    width: 240px;
+    display: block;
+    color: white;
+    background-color: #333333;
+    text-decoration: none;
+    text-align: center;
+    font: 800 1.2rem Inconsolata;
+    padding: 25px 40px;
+    margin-left: 25px;
+}
+
+footer {
+    width: 100vw;
+    height: 50vh;
+    padding: 20% 0;
+}
+
+footer>p {
+    width: 100vw;
+    font: 1em Montserrat;
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    body {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+    header>p {
+        font: 800 1.4rem Inconsolata;
+        margin: 35px 0 25px 80px;
+    }
+    main {
+        max-width: 80vw;
+        height: 75vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-content: space-around;
+        gap: 50px;
+        margin: auto;
+    }
+    #img img {
+        /* display: block; */
+        width: 100%;
+        margin: auto;
+    }
+    .content {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .content h1 {
+        width: 450px;
+        margin: -20px 0 30px 63px;
+    }
+    .content p {
+        width: 320px;
+        margin: 0 63px 30px;
+        align-self: center;
+    }
+
+    .content a {
+        height: 68px;
+        margin: 0 63px;
+        padding-top: 24px;
+        text-align: center;
+        align-self: center;
+    }
+    footer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        bottom: -40px;
+        height: 100px;
+        padding: 0;
+    }
+}
