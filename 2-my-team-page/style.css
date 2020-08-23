@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:wght@300;600&display=swap&family=Montserrat:wght@500&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+header>h1 {
+    font: 700 2.5rem 'PT Serif';
+    margin: 20px 0 40px 15px;
+}
+
+header>h2, header>p {
+    margin: 0 0 15px 15px;
+}
+
+header>h2, p {
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+header>h2 {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+header>p {
+    font-weight: normal;
+}
+
+main {
+    display: flex;
+}
+
+.container {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 170px);
+    justify-content: stretch;
+}
+
+.contributor:nth-child(even) {
+    margin-top: 46px;
+}
+
+.contributor {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contributor img {
+    width: 128px;
+}
+
+.contributor p {
+    grid-column: 1 / 2;
+    margin: 5px 0 0;
+}
+
+.contributor small {
+    position: absolute;
+    text-transform: uppercase;
+    transform-origin: 72px 72px;
+    transform: rotate(90deg);
+    font-size: .75rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 140px;
+    padding-bottom: 30px;
+}
+
+footer>p {
+    align-self: flex-end;
+    color: #bbb;
+    font: 600 1rem Montserrat;
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 750px;
+        margin: 45px auto;
+    }
+    header>h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    header>h2 {
+        align-self: center;
+    }
+    header>h2, header>p {
+        margin: 0 0 0 50px;
+        padding: 0;
+    }
+    header>p {
+        grid-column: 2 / 2;
+        width: 300px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 50vw;
+    }
+    .contributor img {
+        width: 180px;
+    }
+    .contributor small {
+        transform-origin: 98px 98px;
+    }
+    .contributor:nth-child(even) {
+        margin-top: 0px;
+    }
+    .contributor:nth-child(2), .contributor:nth-child(5) {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+    footer {
+        height: 90px;
+    }
+}
