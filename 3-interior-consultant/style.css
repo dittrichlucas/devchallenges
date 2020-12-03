@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --page-content-center-width: 1440px;
+    --page-content-center-position: 0 auto;
 }
 
 @media screen and (min-width: 720px) {
@@ -29,6 +31,7 @@
 
     .img-card {
         min-height: 726px;
+        background-size: auto calc(100% - 88px);
     }
 
     .card {
@@ -60,6 +63,7 @@
 
     .img-card {
         min-height: 366px;
+        background-size: 100% calc(100% - 88px);
     }
 
     .card {
@@ -160,7 +164,6 @@ main {
     height: 100%;
     background-image: url("images/photo1.png");
     background-repeat: no-repeat;
-    background-size: auto calc(100% - 88px);
     margin: auto;
 }
 
