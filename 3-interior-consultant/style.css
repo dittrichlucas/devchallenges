@@ -1,61 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@300;500;600&display=swap');
 
 * {
-    /* margin: 0; */
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --page-content-center-width: 1440px;
+    --page-content-center-position: 0 auto;
 }
 
 body {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
     background: #181719;
     color: #fff;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
+    grid-area: header;
+    align-items: center;
+    display: grid;
+    justify-content: space-around;
+    flex: 1;
+    height: 10vh;
+    grid-template-columns: 1fr 4fr;
+    margin: var(--page-content-center-position);
+    max-width: var(--page-content-center);
 }
 
 .navbar .menu {
     display: flex;
+    flex: 1;
+    justify-content: space-between;
 }
 
 .menu .menu-item {
+    font: 1rem 'Montserrat';
     list-style: none;
-    margin-right: 10px;
 }
 
 .logo {
-    display: inline-block;
+    flex: 1;
+}
+
+.logo .logo-span {
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 200;
     font-family: 'Crimson Pro';
     border: 1px solid #fff;
-    margin-top: 10px;
     padding: 10px;
+    height: 40px;
 }
 
-.container h1 {
+main {
+    grid-area: main;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    margin: var(--page-content-center-position);
+}
+
+.content {
+    width: 30vw;
+    height: 700px;
+    margin: auto;
+}
+
+.content h1 {
+    margin-bottom: 40px;
     font: 2rem 'Lora';
 }
 
-.container p {
+.content p {
+    margin-bottom: 40px;
     font: 1rem 'Montserrat';
-    width: 71%;
+    font-weight: 300;
+    width: 50%;
 }
 
-.container a {
+.content a {
     font: 1rem 'Montserrat';
     text-decoration: none;
     color: #fff;
 }
 
+.img-card {
+    position: relative;
+    width: 30vw;
+    height: 70%;
+    background-image: url("images/photo1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
 .interior {
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
+}
+
+.card {
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: -60px;
+    right: 20px;
+    /* border: 1px solid #f00; */
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 54%;
+    background: #181719;
 }
 
 .card img {
+    margin: 15px 20px;
     border-radius: 50%;
-    width: 100px;
+    width: 100%;
+    max-width: 50px;
 }
+
+.card h2 {
+    display: block;
+    margin-left: 20px;
+}
+
+.card-content {
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    transform: translate(-40%, -20%);
+}
+
+.card .card-content strong,
+.card .card-content span {
+    display: block;
+}
+
+.card .card-content strong {
+    font: .8rem 'Montserrat';
+    margin-bottom: 5px;
+}
+
+.card .card-content span {
+    font: .6rem 'Montserrat';
+    color: #828282;
+}
+
+footer {
+    grid-area: footer;
+    margin: var(--page-content-center-position);
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    font: .8rem 'Montserrat';
+    color: #828282;
+}
+
+
+/* ## TODO:
+
+- [ ] Desktop
+    - [x] Posicionar os elementos do menu
+    - [x] Posicionar os elementos do main
+    - [ ] Centralizar a imagem do link qu está no main
+    - [ ] Tornar o layout responsivo
+
+- [ ] Mobile
+    - [ ] Desenvolver menu de hamburguer
+    - [ ] Posicionar os elementos do main */
