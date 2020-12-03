@@ -1,61 +1,239 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@300;500;600&display=swap');
 
 * {
-    /* margin: 0; */
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+@media screen and (min-width: 720px) {
+    .menu {
+        display: flex;
+    }
+
+    .open-menu {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: 4fr 6fr;
+    }
+
+    .content h1 {
+        font: 4rem 'Lora';
+    }
+
+    .content p {
+        font: 1.5rem 'Montserrat';
+    }
+
+    .img-card {
+        min-height: 726px;
+    }
+
+    .card {
+        min-width: 350px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .menu {
+        display: none;
+    }
+
+    .open-menu {
+        display: block;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .content h1 {
+        font: 3rem 'Lora';
+    }
+
+    .content p {
+        font: 1.1rem 'Montserrat';
+    }
+
+    .img-card {
+        min-height: 366px;
+    }
+
+    .card {
+        min-width: 300px;
+        -webkit-box-shadow: 0px 4px 18px 2px #000; 
+        box-shadow: 0px 4px 18px 2px #000;
+    }
+
+    footer {
+        border-top: 2px solid #fff;
+    }
+}
+
 body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     background: #181719;
     color: #fff;
+    max-width: 1440px;
+    margin: 0 auto;
+    grid-gap: 36px;
+    height: 100vh;
 }
 
 .header {
+    align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex: 1;
+    padding: 24px;
+}
+
+.navbar {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .navbar .menu {
-    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    max-width: 600px;
+    margin-left: 36px;
 }
 
 .menu .menu-item {
+    font: 1rem 'Montserrat';
     list-style: none;
-    margin-right: 10px;
 }
 
 .logo {
-    display: inline-block;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 200;
     font-family: 'Crimson Pro';
     border: 1px solid #fff;
-    margin-top: 10px;
     padding: 10px;
+    height: 40px;
 }
 
-.container h1 {
-    font: 2rem 'Lora';
+main {
+    align-items: center;
 }
 
-.container p {
-    font: 1rem 'Montserrat';
-    width: 71%;
+.container {
+    display: grid;
+    flex: 1;
+    grid-gap: 24px;
+    padding: 0 24px;
+    height: 100%;
 }
 
-.container a {
+.content {
+    flex: 1;
+}
+
+.content h1 {
+    margin-bottom: 40px;
+}
+
+.content p {
+    margin-bottom: 40px;
+    font-weight: 300;
+    padding-right: 80px;
+}
+
+.content a {
     font: 1rem 'Montserrat';
     text-decoration: none;
     color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.img-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/photo1.png");
+    background-repeat: no-repeat;
+    background-size: auto calc(100% - 88px);
+    margin: auto;
 }
 
 .interior {
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
+}
+
+.card {
+    position: absolute;
+    bottom: 0px;
+    right: 24px;
+    background: #181719;
+    display: flex;
+    flex-direction: column;
 }
 
 .card img {
     border-radius: 50%;
-    width: 100px;
+    width: 100%;
+    max-width: 50px;
 }
+
+.card h2 {
+    display: block;
+    margin: 0 24px 24px;
+}
+
+.card-content {
+    display: grid;
+    align-items: center;
+    margin: 24px;
+    grid-template-columns: auto 1fr;
+    grid-gap: 24px;
+}
+
+.card .card-content strong,
+.card .card-content span {
+    display: block;
+}
+
+.card .card-content strong {
+    font: .8rem 'Montserrat';
+    margin-bottom: 5px;
+}
+
+.card .card-content span {
+    font: .6rem 'Montserrat';
+    color: #828282;
+}
+
+footer {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 48px;
+}
+
+footer p {
+    font: .8rem 'Montserrat';
+    color: #828282;
+}
+
+
+/* ## TODO:
+
+- [ ] Desktop
+    - [x] Posicionar os elementos do menu
+    - [x] Posicionar os elementos do main
+    - [ ] Centralizar a imagem do link qu está no main
+    - [ ] Tornar o layout responsivo
+
+- [ ] Mobile
+    - [ ] Desenvolver menu de hamburguer
+    - [ ] Posicionar os elementos do main */
