@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@300;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora&family=Montserrat:wght@300;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@
         display: flex;
     }
 
-    .open-menu {
+    #hamburguer-menu {
         display: none;
     }
 
@@ -44,8 +44,127 @@
         display: none;
     }
 
+    #menu-toggle {
+        display: none;
+    }
+
     .open-menu {
         display: block;
+        width: 24px;
+        height: 20px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .open-menu:hover .open::before {
+        top: -9px;
+    }
+
+    .open-menu:hover .open::after {
+        top: 5px;
+    }
+
+    .menu-hb {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: #181719;
+        z-index: 2;
+    }
+
+    .menu-hb label {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-size: 100%;
+        cursor: pointer;
+    }
+
+    .menu-hb .menu-content {
+        position: relative;
+        top: 50%;
+        font-size: 24px;
+        text-align: center;
+        padding-bottom: 20px;
+        margin-top: -170px;
+    }
+
+    .menu-hb ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .menu-hb ul li a {
+        display: inline-block;
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-family: 'Montserrat';
+        padding: 10px 0;
+    }
+
+    .animation::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.3s;
+        margin-top: 10px;
+    }
+
+    .animation:hover::after {
+        width: 100%;
+    }
+
+    .menu-effect {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    .menu-effect ul {
+        transform: translateY(0%);
+        transition: all 0.5s;
+    }
+
+    #menu-toggle:checked ~ .menu-effect {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s;
+    }
+
+    #menu-toggle:checked ~ .menu-effect ul {
+        opacity: 1;
+    }
+
+    #menu-toggle:checked ~.open-menu .open::after {
+        content: "";
+        background-color: #fff;
+        transform: rotate(-45deg);
+        position: relative;
+        top: 0;
+        right: 0;
+        z-index: 4;
+    }
+
+    #menu-toggle:checked ~.open-menu .open::before {
+        content: "";
+        background-color: #fff;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+    }
+
+    #menu-toggle:not(:checked) ~ .menu-effect ul {
+        transform: translateY(-30%);
     }
 
     .container {
@@ -68,12 +187,45 @@
 
     .card {
         min-width: 300px;
-        -webkit-box-shadow: 0px 4px 18px 2px #000; 
+        -webkit-box-shadow: 0px 4px 18px 2px #000;
         box-shadow: 0px 4px 18px 2px #000;
     }
 
-    footer {
-        border-top: 2px solid #fff;
+    .open {
+        background-color: #fff;
+        width: 24px;
+        height: 4px;
+        display: block;
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+        top: 8px;
+    }
+
+    .open::before {
+        content: "";
+        background-color: #fff;
+        width: 24px;
+        height: 4px;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        top: -8px;
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
+    }
+
+    .open::after {
+        content: "";
+        background-color: #fff;
+        width: 24px;
+        height: 4px;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        top: 4px;
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
     }
 }
 
@@ -109,9 +261,28 @@ body {
     margin-left: 36px;
 }
 
-.menu .menu-item {
-    font: 1rem 'Montserrat';
+.list {
     list-style: none;
+}
+
+.list a {
+    font: 1rem 'Montserrat';
+    text-decoration: none;
+    color: #d0d0d0;
+}
+
+.animation::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s;
+    margin-top: 10px;
+}
+
+.animation:hover::after {
+    width: 100%;
 }
 
 .logo {
@@ -150,13 +321,45 @@ main {
     padding-right: 80px;
 }
 
-.content a {
+.cta-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cta-container a {
     font: 1rem 'Montserrat';
     text-decoration: none;
     color: #fff;
-    display: flex;
-    align-items: center;
+    margin-right: 20px;
 }
+
+.cta-container a:hover {
+    color: darkgray;
+}
+
+.content image {
+    padding-bottom: 10px;
+}
+
+.shake {
+    animation: scale 1s infinite;
+}
+
+@keyframes scale {
+    0%,
+    20%,
+    100% { transform: scale(1.5, 1); }
+    40% { transform: scale(1, 1.2) }
+}
+
+/* @keyframes shake {
+    0%,
+    20%,
+    100% { transform: translateX(-8px); }
+    50%,
+    40% { transform: translateX(0) }
+} */
 
 .img-card {
     position: relative;
@@ -227,16 +430,3 @@ footer p {
     font: .8rem 'Montserrat';
     color: #828282;
 }
-
-
-/* ## TODO:
-
-- [ ] Desktop
-    - [x] Posicionar os elementos do menu
-    - [x] Posicionar os elementos do main
-    - [ ] Centralizar a imagem do link qu está no main
-    - [ ] Tornar o layout responsivo
-
-- [ ] Mobile
-    - [ ] Desenvolver menu de hamburguer
-    - [ ] Posicionar os elementos do main */
